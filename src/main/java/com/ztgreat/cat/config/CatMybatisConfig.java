@@ -14,7 +14,9 @@ public class CatMybatisConfig {
     @Value("${spring.datasource.url}")
     private String jdbcUrl;
 
-    private String mapperLocations = "classpath:mapper/*.xml";
+    @Value("${mybatis.mapper-locations}")
+    private String mapperLocations;
+
     @Bean
     public SqlSessionFactory mysqlSessionFactory(DataSource mysqlDataSource) throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
